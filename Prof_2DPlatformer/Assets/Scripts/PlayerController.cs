@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myBod;
+    ParticleSystem myPart;
+    AudioSource myAudio;
+
     public int health;
     public float speed;
     public float jumpSpeed;
@@ -20,6 +23,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myBod = GetComponent<Rigidbody2D>();
+        myPart = GetComponent<ParticleSystem>();
+        myAudio = GetComponent<AudioSource>();
+
         jumpsLeft = 10;
 
         allHearts = GameObject.FindGameObjectsWithTag("Heart");
@@ -38,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
         //jump
         if(jumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+            myPart.Play();
+            myAudio.Play();
             v.y = jumpSpeed;
             jumpsLeft--;
         }
