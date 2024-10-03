@@ -19,6 +19,8 @@ public class InvBox : MonoBehaviour, IDropHandler
             droppedT.SetParent(transform, false);
             return;
         }
+        // no crafting
+        /*
         Icon currentIcon = transform.GetChild(0).GetComponent<Icon>();
         Icon droppedIcon = eventData.pointerDrag.GetComponent<Icon>();
 
@@ -28,5 +30,6 @@ public class InvBox : MonoBehaviour, IDropHandler
             Destroy(droppedIcon.gameObject);
             GetComponentInParent<InventoryManager>().buildStarIcon();
         }
+        */
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Icon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Icon : MonoBehaviour, IDragHandler, 
+    IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    public string type;
+    // public string type;
 
     Transform canvasTransform;
     Transform origParent;
@@ -34,6 +35,15 @@ public class Icon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         {
             //we failed to find new parent.
             transform.SetParent(origParent, false);
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        //right click
+        if(eventData.button == PointerEventData.InputButton.Right) {
+            
+            Destroy(gameObject);
         }
     }
 }

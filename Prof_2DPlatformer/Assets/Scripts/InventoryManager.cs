@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject lightningPrefab;
-    public GameObject heartPrefab;
-    public GameObject starPrefab;
-
+    // public GameObject lightningPrefab;
+    // public GameObject heartPrefab;
+    // public GameObject starPrefab;
+    public GameObject invIconPrefab;
+    
     private void Start()
     {
-        buildHeartIcon();
+        // buildHeartIcon();
     }
 
+    /*
     public void buildLightningIcon()
     {
         buildIcon(lightningPrefab, "Lightning");
@@ -27,8 +30,10 @@ public class InventoryManager : MonoBehaviour
     {
         buildIcon(starPrefab, "Star");
     }
+    */
 
-    void buildIcon(GameObject prefab, string type)
+    //void buildIcon(GameObject prefab, string type)
+    public void buildIcon(GameObject pickedUp)
     {
         Transform box = findEmptyBox();
         if (box == null)
@@ -36,8 +41,11 @@ public class InventoryManager : MonoBehaviour
             print("No room in inventory");
             return;
         }
-        GameObject g = Instantiate(prefab);
-        g.GetComponent<Icon>().type = type;
+
+        //GameObject g = Instantiate(prefab);
+        GameObject g = Instantiate(invIconPrefab);
+        //g.GetComponent<Icon>().type = type;
+        g.GetComponent<Image>().sprite = pickedUp.GetComponent<SpriteRenderer>().sprite;
         g.transform.SetParent(box, false);
     }
 

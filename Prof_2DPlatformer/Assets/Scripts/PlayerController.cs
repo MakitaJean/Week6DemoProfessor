@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     ParticleSystem myPart;
     AudioSource myAudio;
 
+    InventoryManager invMgr;
+
     public int health;
     public float speed;
     public float jumpSpeed;
@@ -25,6 +27,8 @@ public class PlayerController : MonoBehaviour
         myBod = GetComponent<Rigidbody2D>();
         myPart = GetComponent<ParticleSystem>();
         myAudio = GetComponent<AudioSource>();
+
+        invMgr = GameObject.Find("Inventory").GetComponent<InventoryManager>();
 
         jumpsLeft = 10;
 
@@ -62,6 +66,10 @@ public class PlayerController : MonoBehaviour
             HeartController heartCon = otherGO.GetComponent<HeartController>();
             heartCon.hide();
             health += heartCon.healthVal;
+            invMgr.buildIcon(otherGO);
+        }
+        else{
+            invMgr.buildIcon(otherGO);
         }
     }
 }
