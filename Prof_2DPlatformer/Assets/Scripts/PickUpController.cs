@@ -27,4 +27,10 @@ public class PickUpController : MonoBehaviour
         hide();
         invMgr.buildIcon(gameObject);
     }
+
+    public virtual void invClick(GameObject invIconGO) {
+        print(name +  " clicked on in inventory!");
+        Destroy(invIconGO);
+    }
+
 }

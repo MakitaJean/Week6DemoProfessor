@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     public int maxJumps;
     private int jumpsLeft;
 
-
     private GameObject[] allHearts;
     private int heartCount;
 

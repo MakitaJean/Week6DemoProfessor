@@ -26,8 +26,10 @@ public class InventoryManager : MonoBehaviour
         }
 
         GameObject g = Instantiate(invIconPrefab);
-        g.GetComponent<Image>().sprite = pickedUp.GetComponent<SpriteRenderer>().sprite;
-        g.transform.SetParent(box, false);
+        Icon icon = g.GetComponent<Icon>();
+        icon.GetComponent<Image>().sprite = pickedUp.GetComponent<SpriteRenderer>().sprite;
+        icon.transform.SetParent(box, false);
+        icon.pickUpCon = pickedUp.GetComponent<PickUpController>();
     }
 
     Transform findEmptyBox()

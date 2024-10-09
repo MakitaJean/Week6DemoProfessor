@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Icon : MonoBehaviour, IDragHandler, 
     IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    // public string type;
+    public PickUpController pickUpCon;
 
     Transform canvasTransform;
     Transform origParent;
@@ -40,10 +40,6 @@ public class Icon : MonoBehaviour, IDragHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //right click
-        if(eventData.button == PointerEventData.InputButton.Right) {
-            
-            Destroy(gameObject);
-        }
+        pickUpCon.invClick(gameObject);
     }
 }

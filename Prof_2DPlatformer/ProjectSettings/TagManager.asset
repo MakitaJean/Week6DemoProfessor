@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Heart
   - PickUpAble
+  - Heart
   layers:
   - Default
   - TransparentFX
