@@ -68,15 +68,13 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         
         GameObject otherGO = other.gameObject;
-        if(otherGO.name == "Ground") {
+        if(otherGO.name == "Ground" || otherGO.name == "Ground(1)") {
             jumpsLeft = maxJumps;
         }
         else if(otherGO.tag == "PickUpAble") {
             PickUpController puCon = otherGO.GetComponent<PickUpController>();
             puCon.pickUp();
-            //heartCon.hide();
-            //health += heartCon.healthVal;
-            //invMgr.buildIcon(otherGO);
+           
         }
     }
 }
