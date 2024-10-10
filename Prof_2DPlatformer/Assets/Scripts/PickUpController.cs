@@ -9,9 +9,12 @@ public class PickUpController : MonoBehaviour
     
     InventoryManager invMgr;
 
+    
+
     // Start is called before the first frame update
     public virtual void Start()
     {
+          
         myRend = GetComponent<SpriteRenderer>();
         myTrig = GetComponent<BoxCollider2D>();
 
